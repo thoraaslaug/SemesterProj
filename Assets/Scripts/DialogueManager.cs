@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,8 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshPro dialogueText;
-    private Queue<string> sentences; 
+    public TextMeshProUGUI dialogueText;
+    public Queue<string> sentences; 
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,8 @@ public class DialogueManager : MonoBehaviour
 
         DisplayNextSentence();
     }
+    
+    
 
     public void DisplayNextSentence()
     {
@@ -44,8 +47,9 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = sentence;
     }
 
-    void EndDialogue()
+   public void EndDialogue()
     {
+        dialogueText.text = string.Empty; // Clear the text display
         Debug.Log("end of convo");
     }
 }
